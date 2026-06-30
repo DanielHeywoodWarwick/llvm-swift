@@ -4,6 +4,5 @@ import PackageDescription
 
 let package = Package(
     name: "llvm swift",
-    targets: [.systemLibrary(name: "LLVMC", pkgConfig: "llvm")],
-    swiftLanguageModes: [.v6]
+    targets: [.systemLibrary(name: "LLVMC", pkgConfig: "llvm")]
 )

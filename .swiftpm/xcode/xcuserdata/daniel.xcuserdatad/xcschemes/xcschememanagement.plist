@@ -17,6 +17,11 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>LLVM</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>LLVMC</key>
 		<dict>
 			<key>primary</key>

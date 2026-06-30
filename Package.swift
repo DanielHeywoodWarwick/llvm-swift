@@ -4,5 +4,6 @@ import PackageDescription
 
 let package = Package(
     name: "llvm swift",
-    targets: [.systemLibrary(name: "LLVMC", pkgConfig: "llvm")]
+    products: [.library(name: "LLVM", targets: ["LLVM"])],
+    targets: [.target(name: "LLVM"), .systemLibrary(name: "LLVMC", pkgConfig: "llvm")]
 )

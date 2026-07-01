@@ -28,7 +28,7 @@ public struct LLVMModule {
     internal let _storage: _Storage
     
     @inlinable
-    public init(id: String, in context: LLVMContext) {
+    public init(id: String = "", in context: LLVMContext) {
         self._storage = _Storage(id: id, in: context)
     }
 }

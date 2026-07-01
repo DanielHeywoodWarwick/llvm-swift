@@ -1,1 +1,4 @@
-public protocol LLVMType {}
+public protocol LLVMType {
+    
+    var opaqueType: LLVMOpaqueType { get }
+}

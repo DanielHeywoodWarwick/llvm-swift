@@ -14,4 +14,7 @@ public struct LLVMVoidType: LLVMType {
         self._rawType = LLVMVoidTypeInContext(context._storage.rawContext)
         self._context = context
     }
+    
+    @inlinable
+    public var opaqueType: LLVMOpaqueType { LLVMOpaqueType(self) }
 }

@@ -1,5 +1,6 @@
 import LLVMC
 
+@frozen
 public struct LLVMVoidType: LLVMType {
     
     @usableFromInline

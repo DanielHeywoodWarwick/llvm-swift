@@ -4,7 +4,7 @@ import LLVMC
 public struct LLVMContext {
     
     @usableFromInline
-    internal final class _Context {
+    internal final class _Storage {
         
         @usableFromInline
         internal let rawContext = LLVMContextCreate()
@@ -19,7 +19,7 @@ public struct LLVMContext {
     }
     
     @usableFromInline
-    internal let _context = _Context()
+    internal let _storage = _Storage()
     
     @inlinable
     public init() {}

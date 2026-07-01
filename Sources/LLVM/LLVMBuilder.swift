@@ -4,7 +4,7 @@ import LLVMC
 public struct LLVMBuilder {
     
     @usableFromInline
-    internal final class _Builder {
+    internal final class _Storage {
         
         @usableFromInline
         internal let rawBuilder: LLVMBuilderRef
@@ -14,7 +14,7 @@ public struct LLVMBuilder {
         
         @inlinable
         internal init(in context: LLVMContext) {
-            self.rawBuilder = LLVMCreateBuilderInContext(context._context.rawContext)
+            self.rawBuilder = LLVMCreateBuilderInContext(context._storage.rawContext)
             self.context = context
         }
         
@@ -25,10 +25,10 @@ public struct LLVMBuilder {
     }
     
     @usableFromInline
-    internal let _builder: _Builder
+    internal let _storage: _Storage
     
     @inlinable
     public init(in context: LLVMContext) {
-        self._builder = _Builder(in: context)
+        self._storage = _Storage(in: context)
     }
 }

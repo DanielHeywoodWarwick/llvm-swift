@@ -9,9 +9,13 @@ public struct LLVMBuilder {
         @usableFromInline
         internal let rawBuilder: LLVMBuilderRef
         
+        @usableFromInline
+        internal let context: LLVMContext
+        
         @inlinable
         internal init(in context: LLVMContext) {
             self.rawBuilder = LLVMCreateBuilderInContext(context._context.rawContext)
+            self.context = context
         }
         
         @inlinable

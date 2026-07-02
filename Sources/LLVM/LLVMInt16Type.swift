@@ -1,7 +1,7 @@
 import LLVMC
 
 @frozen
-public struct LLVMInt16Type: LLVMType {
+public struct LLVMInt16Type: LLVMIntType {
     
     @usableFromInline
     internal let _rawType: LLVMTypeRef
@@ -16,5 +16,5 @@ public struct LLVMInt16Type: LLVMType {
     }
     
     @inlinable
-    public var opaqueType: LLVMOpaqueType { LLVMOpaqueType(self) }
+    public var opaqueIntType: LLVMOpaqueIntType { LLVMOpaqueIntType(self) }
 }

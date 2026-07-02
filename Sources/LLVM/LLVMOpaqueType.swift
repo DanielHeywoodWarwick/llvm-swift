@@ -10,33 +10,9 @@ public struct LLVMOpaqueType: LLVMType {
     internal let _context: LLVMContext
     
     @inlinable
-    public init(_ type: LLVMInt1Type) {
-        self._rawType = type._rawType
-        self._context = type._context
-    }
-    
-    @inlinable
-    public init(_ type: LLVMInt8Type) {
-        self._rawType = type._rawType
-        self._context = type._context
-    }
-    
-    @inlinable
-    public init(_ type: LLVMInt16Type) {
-        self._rawType = type._rawType
-        self._context = type._context
-    }
-    
-    @inlinable
-    public init(_ type: LLVMInt32Type) {
-        self._rawType = type._rawType
-        self._context = type._context
-    }
-    
-    @inlinable
-    public init(_ type: LLVMInt64Type) {
-        self._rawType = type._rawType
-        self._context = type._context
+    public init(_ type: some LLVMIntType) {
+        self._rawType = type.opaqueIntType._rawType
+        self._context = type.opaqueIntType._context
     }
     
     @inlinable

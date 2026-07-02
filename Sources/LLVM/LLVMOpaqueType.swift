@@ -16,6 +16,24 @@ public struct LLVMOpaqueType: LLVMType {
     }
     
     @inlinable
+    public init(_ type: LLVMHalfType) {
+        self._rawType = type._rawType
+        self._context = type._context
+    }
+    
+    @inlinable
+    public init(_ type: LLVMFloatType) {
+        self._rawType = type._rawType
+        self._context = type._context
+    }
+    
+    @inlinable
+    public init(_ type: LLVMDoubleType) {
+        self._rawType = type._rawType
+        self._context = type._context
+    }
+    
+    @inlinable
     public init(_ type: LLVMVoidType) {
         self._rawType = type._rawType
         self._context = type._context

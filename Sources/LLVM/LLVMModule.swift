@@ -32,8 +32,12 @@ public struct LLVMModule {
     internal let _storage: _Storage
     
     @inlinable
-    public init(id: String, in context: LLVMContext) {
+    public init(id: String, sourceFileName: String, in context: LLVMContext) {
         let storage = _Storage(id: id, in: context)
+        var sourceFileName = sourceFileName
+        sourceFileName.withUTF8 { buffer in
+            LLVMSetSourceFileName(storage.rawModule, buffer.baseAddress, buffer.count)
+        }
         self._storage = storage
     }
     

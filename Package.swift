@@ -2,4 +2,4 @@
 
 import PackageDescription
 
-let package = Package(name: "llvm swift")
+let package = Package(name: "llvm swift", targets: [.systemLibrary(name: "LLVMC", pkgConfig: "llvm")])

@@ -1,0 +1,4 @@
+module LLVMC [system] {
+    header "shim.h"
+    export *
+}

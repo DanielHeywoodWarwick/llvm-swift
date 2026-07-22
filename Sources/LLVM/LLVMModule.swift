@@ -1,3 +1,4 @@
+import SystemPackage
 import LLVMC
 
 @frozen
@@ -34,6 +35,23 @@ public struct LLVMModule {
     public init(id: String, in context: LLVMContext) {
         let storage = _Storage(id: id, in: context)
         self._storage = storage
+    }
+    
+    @inlinable
+    public func write(to file: FileDescriptor) throws -> Int {
+        let rawMessage = LLVMPrintModuleToString(
+            _rawModule
+        ) as UnsafeMutablePointer<CChar>
+        defer {
+            LLVMDisposeMessage(rawMessage)
+        }
+        var count = 0
+        while rawMessage[count] != 0 {
+            count += 1
+        }
+        return try file.writeAll(
+            UnsafeMutableRawBufferPointer(start: rawMessage, count: count)
+        )
     }
     
     @inlinable

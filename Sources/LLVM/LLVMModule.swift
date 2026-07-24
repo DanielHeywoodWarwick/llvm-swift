@@ -42,7 +42,7 @@ public struct LLVMModule {
     }
     
     @inlinable
-    public func write(to fileDescriptor: FileDescriptor) throws -> Int {
+    public func print(to fileDescriptor: FileDescriptor) throws -> Int {
         let rawMessage = LLVMPrintModuleToString(
             _rawModule
         ) as UnsafeMutablePointer<CChar>

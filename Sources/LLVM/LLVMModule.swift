@@ -36,7 +36,10 @@ public struct LLVMModule {
         let storage = _Storage(id: id, in: context)
         var sourceFileName = sourceFileName
         sourceFileName.withUTF8 { buffer in
-            LLVMSetSourceFileName(storage.rawModule, buffer.baseAddress, buffer.count)
+            LLVMSetSourceFileName(
+                storage.rawModule,
+                buffer.baseAddress, buffer.count
+            )
         }
         self._storage = storage
     }

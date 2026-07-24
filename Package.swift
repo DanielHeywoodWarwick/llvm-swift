@@ -6,10 +6,7 @@ let package = Package(
     name: "llvm swift",
     products: [.library(name: "LLVM", targets: ["LLVM"])],
     dependencies: [
-        .package(
-            url: "https://github.com/apple/swift-system.git",
-            from: "1.0.0"
-        )
+        .package(url: "https://github.com/apple/swift-system", from: "1.0.0")
     ],
     targets: [
         .target(

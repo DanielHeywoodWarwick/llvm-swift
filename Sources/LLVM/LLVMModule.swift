@@ -42,7 +42,7 @@ public struct LLVMModule {
     }
     
     @inlinable
-    public func write(to file: FileDescriptor) throws -> Int {
+    public func write(to fileDescriptor: FileDescriptor) throws -> Int {
         let rawMessage = LLVMPrintModuleToString(
             _rawModule
         ) as UnsafeMutablePointer<CChar>
@@ -53,7 +53,7 @@ public struct LLVMModule {
         while rawMessage[count] != 0 {
             count += 1
         }
-        return try file.writeAll(
+        return try fileDescriptor.writeAll(
             UnsafeMutableRawBufferPointer(start: rawMessage, count: count)
         )
     }
